@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
+	<style>
+		html {
+			background-color: white;
+			font-family: monospace, sans-serif;
+		}
+
+		#main-nav {
+			/* background-color: white; */
+			text-align: center;
+			background-image: url("https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80");
+			background-color: rgba(255,255,255,0.7);
+			background-blend-mode: lighten;
+			background-size: cover;
+		}
+
+		div {
+			border-radius: 8px;
+		}
+
+		li {
+			padding: 0px 14px 14px 14px;
+			display: inline-block;
+		}
+
+		li a:hover{
+			border-bottom: 2px solid black;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		h1 {
+			font-family: Lobster, sans-serif;
+			font-size: 100px;
+			margin-top: 0px;
+			margin-bottom: 10px;
+		}
+
+    h2 {
+      /* font-family: Lobster, sans-serif; */
+      /* font-family: 'Oswald', sans-serif; */
+      font-family: 'Arimo', sans-serif;
+    }
+
+		#footer {
+			background-color: white;
+			padding: 15px;
+      margin-top: 20px;
+			clear: all;
+		}
+
+    .social {
+      height: 75px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .row > .column {
+      padding: 0 8px;
+    }
+
+    .row {
+      padding-top: 16px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .column {
+      float: left;
+      width: 25%;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      /* background-color: black; */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      width: 30%;
+      /* max-width: 1200px; */
+    }
+
+    /* The Close Button */
+    .close {
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #999;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .cursor {
+      cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+		.bio {
+			position: absolute;
+			top: 30%;
+			left: 35%;
+		}
+
+		.bioName {
+      position: absolute;
+      top: 25%;
+      left: 35%;
+    }
+
+		.bioNumber {
+			position: absolute;
+			top: 30%;
+			left: 35%;
+		}
+
+		.bioYear {
+			position: absolute;
+			top: 35%;
+			left: 35%;
+		}
+
+		.bioInfo {
+			position: absolute;
+			top: 40%;
+			left: 5%;
+		}
+
+    img {
+      margin-bottom: -4px;
+    }
+
+    .caption-container {
+      text-align: center;
+      background-color: black;
+      padding: 2px 16px;
+      color: white;
+      background-color: rgba(0,0,0,0.0); /* Black w/ opacity */
+    }
+
+    .demo {
+      opacity: 0.6;
+    }
+
+    .active,
+    .demo:hover {
+      opacity: 1;
+    }
+
+    img.hover-shadow {
+      transition: 0.3s;
+    }
+
+    .hover-shadow:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .modal img {
+      opacity: 0.5;
+    }
+
+    .roster {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+
+	</style>
+	<head>
+		<title>
+			Roster
+		</title>
+	</head>
+	<body>
+		<div id="main-nav">
+			<h1><a href="Home.html">Daisy Chain</a></h1>
+      <h2>Mount Holyoke College Ultimate Team</h2>
+			<ul>
+				<li><a href="Home.html">Home</a></li>
+				<li><a href="AboutUs.html">About Us</a></li>
+				<li><a href="Roster.html">Roster</a></li>
+				<li><a href="Schedule.html">Schedule/Results</a></li>
+			</ul>
+		</div>
+    <div class="roster">
+      <div class="row">
+        <div class="column">
+          <img src="headshots/Olivia.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="headshots/Clara.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="headshots/SJ.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="headshots/Ayla.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <img src="headshots/Bloomie.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="headshots/Emma.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="headshots/Maggie.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="headshots/Nadia.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+        </div>
+      </div>
+
+      <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+          <div class="mySlides">
+            <div class="numbertext">1 / 8</div>
+            <img src="headshots/Olivia.jpg" style="width:100%">
+            <div class="bioName"><p>Olivia Brandwein</p></div>
+						<div class="bioNumber"><p>Number: 3</p></div>
+						<div class="bioYear"><p>Year: Sophomore</p></div>
+						<div class="bioInfo"><p>Her favorite blanch food is the mhc ginger snap ice cream (great choice, way to have school pride). She wakes up to the radar alarm tone every morning and her favorite vine is “stop! i coulda dropped my croissant”</p></div>
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">2 / 8</div>
+            <img src="headshots/Clara.jpg" style="width:100%">
+            <div class="bioName"><p>Clara's bio</p></div>
+					<div class="bioNumber"><p>Number: 13</p></div>
+					<div class="bioYear"><p>Year: Junior</p></div>
+					<div class="bioInfo"><p>You can count on her to layout at least once in every game we play! She has a fear of peanut butter despite no peanut allergy and got an award in kindergarten for holding the most cicadas!!</p></div>
+         </div>
+
+          <div class="mySlides">
+            <div class="numbertext">3 / 8</div>
+            <img src="headshots/SJ.jpg" style="width:100%">
+            <div class="bioName"><p>SJ's bio</p></div>
+					<div class="bioNumber"><p>Number: 78</p></div>
+					<div class="bioYear"><p>Year: Sophomore</p></div>
+					<div class="bioInfo"><p>SJ is a ravenclaw, geography major, and has shaved her head 3 times for charity! Catch her walking around campus in her favorite birkenclogs!</p></div>
+         </div>
+
+          <div class="mySlides">
+            <div class="numbertext">4 / 8</div>
+            <img src="headshots/Ayla.jpg" style="width:100%">
+            <div class="bioName"><p>Ayla's bio</p></div>
+					<div class="bioNumber"><p>Number: 71</p></div>
+					<div class="bioYear"><p>Year: Sophomore</p></div>
+					<div class="bioInfo"><p>She played in high school and is a force to be reckoned with on offense and defense! You can find her walking around campus in her favorite birks at all times of the day!!!!!</p></div>
+         </div>
+
+          <div class="mySlides">
+            <div class="numbertext">5 / 8</div>
+            <img src="headshots/Bloomie.jpg" style="width:100%">
+            <div class="bio"><p>Bloomie's bio</p></div>
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">6 / 8</div>
+            <img src="headshots/Emma.jpg" style="width:100%">
+            <div class="bio"><p>Emma's bio</p></div>
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">7 / 8</div>
+            <img src="headshots/Maggie.jpg" style="width:100%">
+            <div class="bio"><p>Maggie's bio</p></div>
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">8 / 8</div>
+            <img src="headshots/Nadia.jpg" style="width:100%">
+            <div class="bio"><p>Nadia's bio</p></div>
+          </div>
+
+
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+      </div>
+    </div>
+
+    <div id = "footer">
+      <a href = "https://twitter.com/MHCdaisychain" target="_blank"><img src = "https://www.pngkey.com/png/detail/2-27646_twitter-logo-png-transparent-background-logo-twitter-png.png" class = "social" /></a>
+      <a href = "https://www.facebook.com/mhcult/" target="_blank"><img src = "https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png" class = "social" /> </a>
+    </div>
+    <script>
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+    </script>
+	</body>
+</html>

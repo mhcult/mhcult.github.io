@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
+    <style>
+   	 html {
+   		 background-color: white;
+   		 font-family: monospace, sans-serif;
+   	 }
+
+     /* ----Top of page formatting---- */
+   	 #main-nav {
+   		 background-color: white;
+   		 text-align: center;
+       background-image: url("https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80");
+       background-color: rgba(255,255,255,0.7);
+       background-blend-mode: lighten;
+       background-size: cover;
+     }
+
+   	 div {
+   		 border-radius: 8px;
+   	 }
+
+   	 li {
+   		 padding: 0px 14px 14px 14px;
+   		 display: inline-block;
+   	 }
+
+   	 li a:hover{
+   		 border-bottom: 2px solid black;
+   	 }
+
+   	 a {
+   		 text-decoration: none;
+   		 color: black;
+   	 }
+
+   	 h1 {
+   		 font-family: Lobster, sans-serif;
+   		 font-size: 100px;
+   		 margin-top: 0px;
+   		 margin-bottom: 10px;
+   	 }
+
+     h2 {
+       font-family: 'Arimo', sans-serif;
+     }
+     /* ----Bottom of page formatting---- */
+   	 #footer {
+   		 background-color: white;
+   		 padding: 15px;
+   		 clear: both;
+   	 }
+     .social {
+       height: 75px;
+     }
+
+     /* ----Page specific formatting---- */
+     #codegreen  {
+       background-color: #87CEFA;
+       width: 250px;
+       height: 250px;
+       padding: 10px;
+       float: left;
+     }
+
+     #tournament  {
+       background-color: white;
+       width: 250px;
+       height: 250px;
+       padding: 10px;
+       float: left;
+     }
+
+     #daisy {
+       opacity: .2;
+       flex-shrink: 0;
+       height:400px;
+       min-width: 100%;
+       min-height: 100%;
+     }
+
+     #season {
+       clear:both;
+       text-align: center;
+     }
+    </style>
+    <head>
+   	 <title>
+   		 Schedule and Results
+   	 </title>
+    </head>
+    <body>
+   	 <div id="main-nav">
+       <h1><a href="index.html">Daisy Chain</a></h1>
+  	<h2>Mount Holyoke College Ultimate Team</h2>
+   		 <ul>
+   			 <li><a href="index.html">Home</a></li>
+   			 <li><a href="AboutUs.html">About Us</a></li>
+   			 <li><a href="Roster.html">Roster</a></li>
+   			 <li><a href="schedule.html">Schedule/Results</a></li>
+   		 </ul>
+   	 </div>
+	<div id="schedule">
+  	<h2 style="text-align: center;" > Schedule and Results </h2>
+  </div>
+  <div id="season">
+    <p style="font-weight: bold; font-size: 18px; text-align: center;"> Spring 2019 </a> </p>
+  </div>
+  <div id="bigdiv">
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Long Island Classic (3-0) </u> </p>
+    <p>
+    <br> SUNY-Geneseo (10-6)</br>
+    <br> Colby (10-9) </br>
+    <br> Wellesley (10-8) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Garden State 9 (6-2) </u> </p>
+    <p>
+    <br> Syracuse (13-6) </br>
+    <br> Lehigh (8-7)  </br>
+    <br> Wesleyan (8-9) </br>
+    <br> New Hampshire (3-9) </br>
+    <br> Rochester (13-4) </br>
+    <br> Skidmore (11-8) </br>
+    <br> New Hampshire (13-1) </br>
+    <br> Wesleyan (13-3)</br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Sectionals (4-1) </u> </p>
+    <p>
+    <br> WPI (13-4) </br>
+    <br> Clark (10-6)  </br>
+    <br> Amherst (13-8) </br>
+    <br> Smith (11-6) </br>
+    <br> Williams (6-11) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Regionals (3-2) </u> </p>
+    <p>
+    <br> Amherst (10-5) </br>
+    <br> Bowdoin (13-3)  </br>
+    <br> Bates (4-13) </br>
+    <br> Williams (8-12) </br>
+    <br> Brandeis (9-8) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> &#9733; Nationals (3-2) </u> </p>
+    <p>
+    <br> Truman State (10-7) </br>
+    <br> Portland (10-11)  </br>
+    <br> North Park (7-9) </br>
+    <br> Lewis & Clark (5-15) </br>
+    <br> Wesleyan (9-8) </br>
+    </p>
+  </div>
+
+  <div id="season">
+    <p style="font-weight: bold; font-size: 18px;"> Spring 2018 </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Jersey Devil (3-2) </u> </p>
+    <p>
+    <br> Carleton University (12-4) </br>
+    <br> Towson (9-5)  </br>
+    <br> Lehigh (7-6) </br>
+    <br> Messiah College (8-3) </br>
+    <br> Wellesley (7-3) </br>
+    <br> Ottowa University (10-5) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Vermont Open 2018 (4-0) </u> </p>
+    <p>
+    <br> University of Maine (12-4) </br>
+    <br> Boston University B (7-2)  </br>
+    <br> WPI (10-3) </br>
+    <br> WPI (8-4) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Sectionals (4-1) </u> </p>
+    <p>
+    <br> Smith (13-6) </br>
+    <br> Clark (11-8)  </br>
+    <br> Amherst (12-7) </br>
+    <br> WPI (10-5) </br>
+    <br> Williams (6-12) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Regionals (4-2) </u> </p>
+    <p>
+    <br> Middlebury (11-9) </br>
+    <br> Brandeis (7-13)  </br>
+    <br> Williams (1-13) </br>
+    <br> Smith (15-3) </br>
+    <br> Bowdoin (14-9) </br>
+    <br> Middlebury (9-8)</br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> &#9733; Nationals (4-2) </u> </p>
+    <p>
+    <br> Oberlin (12-10) </br>
+    <br> Wesleyan (14-8)  </br>
+    <br> Catholic (15-10) </br>
+    <br> Georgia College (15-10) </br>
+    <br> Bates (15-6) </br>
+    </p>
+  </div>
+  <div id="season">
+    <p style="font-weight: bold; font-size: 18px;"> Spring 2017 </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Jersey Devil (5-1) </u> </p>
+    <p>
+    <br> Columbia B (13-1) </br>
+    <br> NYU (12-4)  </br>
+    <br> Haveford B (12-4) </br>
+    <br> Pennsbury B (13-5) </br>
+    <br> Pittsburgh B (13-2) </br>
+    <br> Brown (4-11) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Amherst Round Robin (0-3) </u> </p>
+    <p>
+    <br> Bates (7-8) </br>
+    <br> Amherst (6-7)  </br>
+    <br> Bowdoin (4-10) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Sectionals (4-1) </u> </p>
+    <p>
+    <br> Williams (0-13) </br>
+    <br> Smith (11-2)  </br>
+    <br> Clark (13-3) </br>
+    <br> Amherst (11-5) </br>
+    <br> WPI (10-6) </br>
+    <br> Williams (1-15) </br>
+    <br> Amherst (10-3) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Regionals (2-2) </u> </p>
+    <p>
+    <br> Brandeis (11-9) </br>
+    <br> Stonehill (12-8)  </br>
+    <br> Bowdoin (1-13) </br>
+    <br> Bowdoin (2-15) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> &#9733; Nationals (3-1) </u> </p>
+    <p>
+    <br> Carleton College (11-12) </br>
+    <br> Valparaiso (5-15)  </br>
+    <br> Lehigh (11-9) </br>
+    <br> Georgia College (7-10) </br>
+    </p>
+  </div>
+  <div id="season">
+    <p style="font-weight: bold; font-size: 18px;"> Spring 2016 </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Williams Tournament (3-0) </u> </p>
+    <p>
+    <br> Umass (win) </br>
+    <br> Amherst (win)  </br>
+    <br> Williams (win) </br>
+    <br> Pennsbury B (13-5) </br>
+    <br> Pittsburgh B (13-2) </br>
+    <br> Brown (4-11) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Jersey Devil (6-1) </u> </p>
+    <p>
+    <br> Columbia (13-1) </br>
+    <br> Haverford (13-6)  </br>
+    <br> Rutgers (8-5) </br>
+    <br> Northeastern (13-1) </br>
+    <br> Brandeis (10-6) </br>
+    <br> Westchester (9-2) </br>
+    <br> Ottowa (2-13) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> April 2 Tournament (6-1) </u> </p>
+    <p>
+    <br> Bentley (13-3) </br>
+    <br> SUNY-Buffalo (13-3)  </br>
+    <br> Bowdoin (13-0) </br>
+    <br> Rhode Island (13-5) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Sectionals (4-1) </u> </p>
+    <p>
+    <br> Amherst (13-8) </br>
+    <br> Williams (6-9)  </br>
+    <br> Smith (13-2) </br>
+    <br> Clark (13-5) </br>
+    <br> WPI (13-5) </br>
+    <br> Amherst (11-9) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Regionals (4-2) </u> </p>
+    <p>
+    <br> Brandeis (12-4) </br>
+    <br> Amherst (9-10)  </br>
+    <br> Bates (5-15) </br>
+    <br> Smith (12-2) </br>
+    <br> Stonehill (15-4) </br>
+    <br> Wellesley (9-6) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> &#9733; Nationals (3-2) </u> </p>
+    <p>
+    <br> Georgia College (15-6) </br>
+    <br> Wesleyan (13-9)  </br>
+    <br> St Olaf (7-11) </br>
+    <br> Valparaiso (11-10) </br>
+    <br> Wesleyan (4-8) </br>
+    </p>
+  </div>
+  <div id="season">
+    <p style="font-weight: bold; font-size: 18px;"> Spring 2015 </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> UNH Tournament (5-0) </u> </p>
+    <p>
+    <br> Univ Rhode Island A (7-6) </br>
+    <br> Univ Rhode Island B (13-2)  </br>
+    <br> Bates (13-4) </br>
+    <br> Bradneis (10-6) </br>
+    <br> UNH B (unreported) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Uprising Tournament (3-0) </u> </p>
+    <p>
+    <br> CCSU (9-5) </br>
+    <br> Stonehill (8-5)  </br>
+    <br> Syracuse (11-1) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Sectionals (2-1) </u> </p>
+    <p>
+    <br> Smith (10-7) </br>
+    <br> Amherst (10-7)  </br>
+    <br> Williams (7-10) </br>
+    </p>
+  </div>
+  <div id = "tournament" style=" line-height: .7em;">
+    <p> <u> Regionals (3-4) </u> </p>
+    <p>
+    <br> Smith (12-6) </br>
+    <br> Amherst (12-5)  </br>
+    <br> Wellesley (13-6) </br>
+    <br> Bowdoin (5-10) </br>
+    <br> Williams (2-13) </br>
+    <br> Stonehill (6-13) </br>
+    <br> Bowdoin (3-13) </br>
+    </p>
+  </div>
+
+	<div id = "footer">
+    <h3> Contact us: ultimate.mhc@gmail.com</h3>
+    <h3> Follow us: </h3>
+    <a href = "https://twitter.com/MHCdaisychain" target="_blank"><img src = "twitter.png" class = "social" /></a>
+  	<a href = "https://www.facebook.com/mhcult/" target="_blank"><img src = "facebook.png" class = "social" /> </a>
+    <a href = "https://www.instagram.com/mhcdaisychain/" target="_blank"><img src = "instagram.png" class = "social" /></a>
+	</div>
+    </body>
+</html>

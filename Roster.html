@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
+	<style>
+		html {
+			background-color: white;
+			font-family: monospace, sans-serif;
+		}
+
+		/* ----Top of page formatting---- */
+		#main-nav {
+			/* background-color: white; */
+			text-align: center;
+			background-image: url("https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80");
+			background-color: rgba(255,255,255,0.7);
+			background-blend-mode: lighten;
+			background-size: cover;
+		}
+
+		div {
+			border-radius: 8px;
+		}
+
+		li {
+			padding: 0px 14px 14px 14px;
+			display: inline-block;
+		}
+
+		li a:hover{
+			border-bottom: 2px solid black;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		h1 {
+			font-family: Lobster, sans-serif;
+			font-size: 100px;
+			margin-top: 0px;
+			margin-bottom: 10px;
+		}
+
+    h2 {
+      /* font-family: Lobster, sans-serif; */
+      /* font-family: 'Oswald', sans-serif; */
+      font-family: 'Arimo', sans-serif;
+    }
+
+		/* ----Bottom of page formatting---- */
+		#footer {
+			background-color: white;
+			padding: 15px;
+      margin-top: 20px;
+			clear: all;
+		}
+
+    .social {
+      height: 75px;
+    }
+
+		/* ----Page specific formatting---- */
+    * {
+      box-sizing: border-box;
+    }
+
+		/* To get the images 3 images/row in rows */
+    .row > .column {
+      padding: 0 8px;
+    }
+
+    .row {
+      padding-top: 16px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .column {
+      float: left;
+      width: 25%;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      /* background-color: black; */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      width: 30%;
+      /* max-width: 1200px; */
+    }
+
+    /* The Close Button */
+    .close {
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #999;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .cursor {
+      cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+		/* To get the bio information in the right place in the modal */
+		.bio {
+			position: absolute;
+			top: 30%;
+			left: 35%;
+		}
+
+		.bioName {
+      position: absolute;
+      top: 25%;
+      left: 35%;
+    }
+
+		.bioNumber {
+			position: absolute;
+			top: 30%;
+			left: 35%;
+		}
+
+		.bioYear {
+			position: absolute;
+			top: 35%;
+			left: 35%;
+		}
+
+		.bioInfo {
+			position: absolute;
+			top: 40%;
+			left: 5%;
+		}
+
+    img {
+      margin-bottom: -4px;
+    }
+
+    .demo {
+      opacity: 0.6;
+    }
+
+    .active,
+    .demo:hover {
+      opacity: 1;
+    }
+
+		/* Making it shadow if you hover over an image */
+    img.hover-shadow {
+      transition: 0.3s;
+    }
+
+    .hover-shadow:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+		/* Setting the image behind the bio to be opaque */
+    .modal img {
+      opacity: 0.5;
+    }
+
+		/* Including spacing on either side of the array of images */
+    .roster {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+
+	</style>
+	<head>
+		<title>
+			Roster
+		</title>
+	</head>
+	<body>
+		<div id="main-nav">
+			<h1><a href="index.html">Daisy Chain</a></h1>
+      <h2>Mount Holyoke College Ultimate Team</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="AboutUs.html">About Us</a></li>
+				<li><a href="Roster.html">Roster</a></li>
+				<li><a href="Schedule.html">Schedule/Results</a></li>
+			</ul>
+		</div>
+
+			<div class="roster">
+				<div class="row">
+	        <div class="column">
+	          <img src="headshots/Ysabel.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Mahmuda.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Hannah.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Sherry.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+	        </div>
+	      </div>
+
+				<div class="row">
+	        <div class="column">
+	          <img src="headshots/Bloomie.jpg" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+	        </div>
+					<div class="column">
+	          <img src="headshots/Christine.jpg" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Sara.jpg" style="width:100%" onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Emma.jpg" style="width:100%" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+	        </div>
+				</div>
+
+				<div class="row">
+	        <div class="column">
+	          <img src="headshots/Clara.jpg" style="width:100%" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Madison.jpg" style="width:100%" onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Robin.jpg" style="width:100%" onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+	        </div>
+					<div class="column">
+	          <img src="headshots/Marlee.jpg" style="width:100%" onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+	        </div>
+				</div>
+
+				<div class="row">
+	        <div class="column">
+	          <img src="headshots/Celia.jpg" style="width:100%" onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+	        </div>
+					<div class="column">
+	          <img src="headshots/Nina.jpg" style="width:100%" onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+	        </div>
+				  <div class="column">
+	          <img src="headshots/Wolf.jpg" style="width:100%" onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Olivia.jpg" style="width:100%" onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+	        </div>
+				</div>
+
+				<div class="row">
+	        <div class="column">
+	          <img src="headshots/Omie.jpg" style="width:100%" onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Sophia.jpg" style="width:100%" onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Anli.jpg" style="width:100%" onclick="openModal();currentSlide(19)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Maggie.jpg" style="width:100%" onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
+	        </div>
+				</div>
+
+				<div class="row">
+	        <div class="column">
+	          <img src="headshots/Angela.jpg" style="width:100%" onclick="openModal();currentSlide(21)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Ayla.jpg" style="width:100%" onclick="openModal();currentSlide(22)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/SJ.jpg" style="width:100%" onclick="openModal();currentSlide(23)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Nadia.jpg" style="width:100%" onclick="openModal();currentSlide(24)" class="hover-shadow cursor">
+	        </div>
+				</div>
+
+				<div class="row">
+	        <div class="column">
+	          <img src="headshots/Julia.jpg" style="width:100%" onclick="openModal();currentSlide(25)" class="hover-shadow cursor">
+	        </div>
+	        <div class="column">
+	          <img src="headshots/Gabbi.jpg" style="width:100%" onclick="openModal();currentSlide(26)" class="hover-shadow cursor">
+	        </div>
+				</div>
+			</div>
+
+      <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+					<div class="mySlides">
+            <div class="numbertext">1 / 12</div>
+            <img src="headshots/Ysabel.jpg" style="width:100%">
+            <div class="bioName"><p>Ysabel Lavitz</p></div>
+					<div class="bioNumber"><p>Number: 7</p></div>
+					<div class="bioYear"><p>Year: Senior</p></div>
+					<div class="bioInfo"><p>captain ysabel is an environmental studies major from kentucky! i can promise you will never meet someone who can climb a tree better or faster than her! she is a true stoic leader and always looks so calm, collected, and graceful on the field.</p></div>
+         </div>
+
+				 <div class="mySlides">
+					 <div class="numbertext">2 / 12</div>
+					 <img src="headshots/Mahmuda.jpg" style="width:100%">
+					 <div class="bioName"><p>Mahmuda Alam</p></div>
+				 <div class="bioNumber"><p>Number: 12</p></div>
+				 <div class="bioYear"><p>Year: Senior</p></div>
+				 <div class="bioInfo"><p>up next is junior biochem major, mahmuda! she’s a libra, so don’t think about skimping on your sunscreen coverage around her, because she’ll yell at you and find a way to get it on your face.</p></div>
+				</div>
+
+				<div class="mySlides">
+					<div class="numbertext">3 / 12</div>
+					<img src="headshots/Hannah.jpg" style="width:100%">
+					<div class="bioName"><p>Hannah Finn-Erb</p></div>
+				<div class="bioNumber"><p>Number: 25</p></div>
+				<div class="bioYear"><p>Year: Senior</p></div>
+				<div class="bioInfo"><p>Hannah is an econ major and one of our many soccer crossovers on this team. She may be scared of heights, but she’s not afraid to sky her opponents! We’ve missed her this season while she’s been abroad in France, but we’re excited to have her back in time to join us in Texas!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">4 / 12</div>
+				 <img src="headshots/Sherry.jpg" style="width:100%">
+				 <div class="bioName"><p>Xueyi "Sherry" Yang</p></div>
+				 <div class="bioNumber"><p>Number: 28</p></div>
+				 <div class="bioYear"><p>Year: Senior</p></div>
+				 <div class="bioInfo"><p>When she’s not making incredible catches on the field you can see her snapping pics on her camera as our unofficial photographer. off the field sherry is probably one of the biggest table tennis fans you’ll find!!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">5 / 8</div>
+				 <img src="headshots/Bloomie.jpg" style="width:100%">
+				 <div class="bioName"><p>Sarah "Bloomie" Bloomgarden</p></div>
+				 <div class="bioNumber"><p>Number: 30</p></div>
+				 <div class="bioYear"><p>Year: Senior</p></div>
+				 <div class="bioInfo"><p>Junior and politics major sarah aka “bloomie” aka “bloom” is a natural at identifying plants and flowers as her name suggests! in another life she thinks it would be great to be a pirate and in this life she wants to be peter pan and never grow up.</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">6 / 8</div>
+				 <img src="headshots/Christine.jpg" style="width:100%">
+				 <div class="bioName"><p>Christine Sherwood</p></div>
+				 <div class="bioNumber"><p>Number: __</p></div>
+				 <div class="bioYear"><p>Year: Senior</p></div>
+				 <div class="bioInfo"><p>Christine is our unofficial (but actually official) score and stat keeper!! She’s been injured for a while :( but we have loved having her presence with team!! We missed her so much while she was abroad in mexico and are so excited to have her back this fall!!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">7 / 8</div>
+				 <img src="headshots/Sara.jpg" style="width:100%">
+				 <div class="bioName"><p>Sara Frieze</p></div>
+				 <div class="bioNumber"><p>Number: 8</p></div>
+				 <div class="bioYear"><p>Year: Junior</p></div>
+				 <div class="bioInfo"><p>Sara is a junior captain majoring in psychology! despite her height she wasn’t the most gifted at basketball - she shot at the wrong hoop playing jv her junior year. luckily, ultimate has clicked for her and she’s so great as a captain for our team!!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">8 / 8</div>
+				 <img src="headshots/Emma.jpg" style="width:100%">
+				 <div class="bioName"><p>Emma Bowe</p></div>
+				 <div class="bioNumber"><p>Number: 11</p></div>
+				 <div class="bioYear"><p>Year: Junior</p></div>
+				 <div class="bioInfo"><p>Emma is one of our captains, and she is one of the most enthusiastic forces on the sideline and loses her voice at almost every tournament we go to. she LOVES raccoons and will sponsor an initiative to teach them frisbee, she thinks they’ll be naturals</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">9 / 8</div>
+				 <img src="headshots/Clara.jpg" style="width:100%">
+				 <div class="bioName"><p>Clara Honigberg</p></div>
+				 <div class="bioNumber"><p>Number: 13</p></div>
+				 <div class="bioYear"><p>Year: Junior</p></div>
+				 <div class="bioInfo"><p>You can count on her to layout at least once in every game we play! She has a fear of peanut butter despite no peanut allergy and got an award in kindergarten for holding the most cicadas!!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">10 / 8</div>
+				 <img src="headshots/Madison.jpg" style="width:100%">
+				 <div class="bioName"><p>Madison Flueckiger</p></div>
+				 <div class="bioNumber"><p>Number: 27</p></div>
+				 <div class="bioYear"><p>Year: Junior</p></div>
+				 <div class="bioInfo"><p>Madison is another soccer crossover (thanks Hannah!) from the great ultimate town of amherst however she never played before she got to college. she’s a hufflepuff and and eats her favorite scrambled eggs with mushroom, spinach, and bacon every morning at blanch</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">11 / 8</div>
+				 <img src="headshots/Robin.jpg" style="width:100%">
+				 <div class="bioName"><p>Robin Joyce</p></div>
+				 <div class="bioNumber"><p>Number: 32</p></div>
+				 <div class="bioYear"><p>Year: Junior</p></div>
+				 <div class="bioInfo"><p>Throw her a frisbee or a cupcake, and you can bet your bottom she’ll catch it! Robin is a junior from the foreign country of California. Former dancer, present ultimate star, future data scientist, if you see robin at natties say hi cuz she’s kool</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">12 / 8</div>
+				 <img src="headshots/Marlee.jpg" style="width:100%">
+				 <div class="bioName"><p>Marlee Raiffa</p></div>
+				 <div class="bioNumber"><p>Number: __</p></div>
+				 <div class="bioYear"><p>Year: Junior</p></div>
+				 <div class="bioInfo"><p>Marlee's bio</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">13 / 8</div>
+				 <img src="headshots/Celia.jpg" style="width:100%">
+				 <div class="bioName"><p>Celia Mulcahey</p></div>
+				 <div class="bioNumber"><p>Number: __</p></div>
+				 <div class="bioYear"><p>Year: Junior</p></div>
+				 <div class="bioInfo"><p>Celia's bio</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">14 / 8</div>
+				 <img src="headshots/Nina.jpg" style="width:100%">
+				 <div class="bioName"><p>Niannian "Nina" Liu</p></div>
+				 <div class="bioNumber"><p>Number: __</p></div>
+				 <div class="bioYear"><p>Year: Junior</p></div>
+				 <div class="bioInfo"><p>Nina's bio</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">15 / 8</div>
+				 <img src="headshots/Wolf.jpg" style="width:100%">
+				 <div class="bioName"><p>Wolf Chen</p></div>
+				 <div class="bioNumber"><p>Number: 0</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Wolf joined us this spring and picked up throwing flick faster than anyone else! they’re the third of our first years from new york city! not only have they picked up ultimate so fast, they can also sing in 10 different languages!!!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">16 / 8</div>
+				 <img src="headshots/Olivia.jpg" style="width:100%">
+				 <div class="bioName"><p>Olivia Brandwein</p></div>
+				 <div class="bioNumber"><p>Number: 3</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Her favorite blanch food is the mhc ginger snap ice cream (great choice, way to have school pride). She wakes up to the radar alarm tone every morning and her favorite vine is “stop! i coulda dropped my croissant”</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">17 / 8</div>
+				 <img src="headshots/Omie.jpg" style="width:100%">
+				 <div class="bioName"><p>Omie Coyne</p></div>
+				 <div class="bioNumber"><p>Number: 6</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Omie aka literal giant aka most likely to hold a baby goat like a child is the biggest advocate of chacos you’ll ever meet. her favorite throw is “the ones Evan does when he throws all of the frisbees towards the soccer goals but like only gets one in every 6 weeks”</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">18 / 8</div>
+				 <img src="headshots/Sophia.jpg" style="width:100%">
+				 <div class="bioName"><p>Sophia Hoenig</p></div>
+				 <div class="bioNumber"><p>Number: 9</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Sophia took a gap year before coming to mount holyoke this fall where she hiked part of the appalachian trail, and she’s going back this summer to hike some more! she never played ultimate before but she has an incredible high release flick and is already a great handler!!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">19 / 8</div>
+				 <img src="headshots/Anli.jpg" style="width:100%">
+				 <div class="bioName"><p>Anli Raymond</p></div>
+				 <div class="bioNumber"><p>Number: 15</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Anli, like many of our rookies, just picked up the sport this year, but she is already so great! She is a card master and will whip out incredible three-story card houses on the fly!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">20 / 8</div>
+				 <img src="headshots/Maggie.jpg" style="width:100%">
+				 <div class="bioName"><p>Maggie Sullivan</p></div>
+				 <div class="bioNumber"><p>Number: 18</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Maggie knows how to juggle and has flown a plane before!!!! when she was little she wanted to be a math teacher (nerd) and her favorite movie is eternal sunshine of the spotless mind (great choice, great film)</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">21 / 8</div>
+				 <img src="headshots/Angela.jpg" style="width:100%">
+				 <div class="bioName"><p>Angela Kung</p></div>
+				 <div class="bioNumber"><p>Number: 54</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Angela came to mhc this past spring and joined the team never having played before and she is already SO GREAT! she is one of 3 sophomores from nyc (crazy!! there must be something in the water there) catch her always eating the salmon in blanch and having the best hair on the team!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">22 / 8</div>
+				 <img src="headshots/Ayla.jpg" style="width:100%">
+				 <div class="bioName"><p>Ayla Osgood</p></div>
+				 <div class="bioNumber"><p>Number: 71</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>She played in high school and is a force to be reckoned with on offense and defense! You can find her walking around campus in her favorite birks at all times of the day!!!!!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">23 / 8</div>
+				 <img src="headshots/SJ.jpg" style="width:100%">
+				 <div class="bioName"><p>Emma "SJ" St. John</p></div>
+				 <div class="bioNumber"><p>Number: 78</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>SJ is a ravenclaw, geography major, and has shaved her head 3 times for charity! Catch her walking around campus in her favorite birkenclogs!</p></div>
+			 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">24 / 8</div>
+				 <img src="headshots/Nadia.jpg" style="width:100%">
+				 <div class="bioName"><p>Nadia Crockett-Current</p></div>
+				 <div class="bioNumber"><p>Number: __</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Nadia is from the “best state” (Maine, according to her) and when she was little wanted to work at a subway sandwich shop!</p></div>
+		 	 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">25 / 8</div>
+				 <img src="headshots/Julia.jpg" style="width:100%">
+				 <div class="bioName"><p>Ruoying "Julia" Chu</p></div>
+				 <div class="bioNumber"><p>Number: __</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Julia's Bio</p></div>
+		 	 </div>
+
+			 <div class="mySlides">
+				 <div class="numbertext">26 / 8</div>
+				 <img src="headshots/Gabbi.jpg" style="width:100%">
+				 <div class="bioName"><p>Gabbi Perry</p></div>
+				 <div class="bioNumber"><p>Number: __</p></div>
+				 <div class="bioYear"><p>Year: Sophomore</p></div>
+				 <div class="bioInfo"><p>Gabbi's Bio</p></div>
+		 	 </div>
+
+			 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			 <a class="next" onclick="plusSlides(1)">&#10095;</a>
+		 </div>
+	 </div>
+
+    <div id = "footer">
+			<a href = "https://twitter.com/MHCdaisychain" target="_blank"><img src = "twitter.png" class = "social" /></a>
+	  	<a href = "https://www.facebook.com/mhcult/" target="_blank"><img src = "facebook.png" class = "social" /> </a>
+	    <a href = "https://www.instagram.com/mhcdaisychain/" target="_blank"><img src = "instagram.png" class = "social" /></a>
+    </div>
+    <script>
+		// To open the modal, make it visible
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+		// To close the modal, make it invisible
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+
+		// Slide index holds what number slide we're on
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+			// Makes an array of all of the images in the mySlides div
+      var slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+	</body>
+</html>
